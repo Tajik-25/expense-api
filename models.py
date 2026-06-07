@@ -15,6 +15,7 @@ class Expenses(Base):
     title = Column(String)
     amount = Column(Integer)
     category = Column(String)
+    cost= Column(Integer)
     created_at = Column(DateTime,default=datetime.utcnow)
     owner_id = Column(Integer,ForeignKey("users.id"))
     user = relationship("Users",back_populates="expenses")

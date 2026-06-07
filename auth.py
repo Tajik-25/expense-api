@@ -6,9 +6,8 @@ from models import Users
 from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import HTTPException,Depends
+from config import SECRET_KEY,ALGORITHM
 oauth2scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
-SECRET_KEY = "tajik"
-ALGORITHM = "HS256"
 pwd_context = CryptContext(schemes=["bcrypt"],deprecated="auto")
 def hash_password(password:str):
     return pwd_context.hash(password)
